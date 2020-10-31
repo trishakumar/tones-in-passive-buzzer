@@ -1,0 +1,79 @@
+ int buzzPin = 8;
+ int readPin = A2;
+ float v2;
+ int d1 = 60;
+ int d2 = 70;
+ int d3 = 80;
+ int d4 = 90;
+ int d5 = 100;
+ int readVal;
+ int t = 250;
+ void setup() {
+  // put your setup code here, to run once:
+pinMode(buzzPin, OUTPUT);
+pinMode(readPin, INPUT);
+Serial.begin(9600);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  readVal = analogRead(readPin);
+  v2 = (5./1023.)*readVal;
+  Serial.print("Pontentiometer Voltage is ");
+  Serial.println(v2); 
+  delay(t);
+  if(v2>0 && v2 < 1)
+  {
+    digitalWrite(buzzPin, HIGH);
+    delayMicroseconds(d1);
+    digitalWrite(buzzPin, LOW);
+    delayMicroseconds(d1);
+    
+  }
+
+
+
+   if(v2>1 && v2 < 2)
+  {
+    digitalWrite(buzzPin, HIGH);
+    delayMicroseconds(d2);
+    digitalWrite(buzzPin, LOW);
+    delayMicroseconds(d2);
+    
+  }
+
+
+
+   if(v2>2 && v2 < 3)
+  {
+    digitalWrite(buzzPin, HIGH);
+    delayMicroseconds(d3);
+    digitalWrite(buzzPin, LOW);
+    delayMicroseconds(d3);
+    
+  }
+
+
+
+   if(v2>3 && v2 < 4)
+  {
+    digitalWrite(buzzPin, HIGH);
+    delayMicroseconds(d4);
+    digitalWrite(buzzPin, LOW);
+    delayMicroseconds(d4);
+    
+  }
+
+
+
+   if(v2>4 && v2 < 5)
+  {
+    digitalWrite(buzzPin, HIGH);
+    delayMicroseconds(d5);
+    digitalWrite(buzzPin, LOW);
+    delayMicroseconds(d5);
+    
+  }
+
+}
